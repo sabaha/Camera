@@ -227,14 +227,15 @@ def reset_values():
     print "comes in there"
     global moveX,moveY,moveZ,rotX,rotY,rotZ,newScale
     moveX=moveY=rotX=rotY=rotZ=0
-    moveZ=newScale=1
-##    x.set(0)
-##    y.set(0)
-##    z.set(1)
-##    x2.set(0)
-##    y2.set(0)
-##    z2.set(0)
-##    scale.set(1)
+    moveZ=1
+    newScale=100
+    x.set(0)
+    y.set(0)
+    z.set(1)
+    x2.set(0)
+    y2.set(0)
+    z2.set(0)
+    scale.set(100)
     print "makes it to here"
     newWindow()
 
@@ -244,7 +245,7 @@ var = StringVar()
 var.set("Music")
 
 
-
+x,y,z,scale,x2,y2,z2=DoubleVar(),DoubleVar(),DoubleVar(),DoubleVar(),DoubleVar(),DoubleVar(),DoubleVar()
     
 
 
@@ -270,42 +271,42 @@ OptionMenu(root, var, "Music","Officer", command=choose_painting).pack()
 Button(root, text='Reset', command=reset_values).pack()
 
 
-z2 = Scale(root, from_=-90, to=90, length=600, orient=VERTICAL)
-z2.set(0)
-z2.pack(side='right',padx=5)
-z2.bind('<ButtonRelease>', rotateInZ)
+Scale(root, from_=-90, to=90, length=600, orient=VERTICAL, variable=z2, command=rotateInZ).pack(side='right',padx=5)
+##scale2.set(0)
+##scale2.pack(side='right',padx=5)
+##scale2.bind('<ButtonRelease>', rotateInZ)
 
-y2 = Scale(root, from_=-90, to=90, length=600, orient=VERTICAL)
-y2.set(0)
-y2.pack(side='right',padx=5)
-y2.bind('<ButtonRelease>', rotateInY)
+Scale(root, from_=-90, to=90, length=600, orient=VERTICAL, variable=y2, command=rotateInY).pack(side='right',padx=5)
+#scale3.set(0)
+#scale3.pack(side='right',padx=5)
+#scale3.bind('<ButtonRelease>', rotateInY)
 
-x2 = Scale(root, from_=-90, to=90, length=600, orient=VERTICAL)
-x2.set(0)
-x2.pack(side='right',padx=5)
-x2.bind('<ButtonRelease>', rotateInX)
+Scale(root, from_=-90, to=90, length=600, orient=VERTICAL, variable=x2, command=rotateInX).pack(side='right',padx=5)
+#scale4.set(0)
+#scale4.pack(side='right',padx=5)
+#scale4.bind('<ButtonRelease>', rotateInX)
 
-scale = Scale(root, from_=1, to=1000, length=600, orient=VERTICAL)
+Scale(root, from_=1, to=1000, length=600, orient=VERTICAL, variable=scale, command=changeScale ).pack(side='right',padx=20)
 scale.set(100)
-scale.pack(side='right',padx=20)
-scale.bind('<ButtonRelease>', changeScale)
+##scale.pack(side='right',padx=20)
+##scale.bind('<ButtonRelease>', changeScale)
 
 
 
-z = Scale(root, from_=-100, to=100, length=600, orient=VERTICAL)
+Scale(root, from_=-100, to=100, length=600, orient=VERTICAL, variable=z, command=moveInZ).pack(side='right',padx=5)
 z.set(1)
-z.pack(side='right',padx=5)
-z.bind('<ButtonRelease>', moveInZ)
+##z.pack(side='right',padx=5)
+##z.bind('<ButtonRelease>', moveInZ)
 
-y = Scale(root, from_=-30, to=30, length=600, orient=VERTICAL)
-y.set(0)
-y.pack(side='right',padx=5)
-y.bind('<ButtonRelease>', moveInY)
+Scale(root, from_=-30, to=30, length=600, orient=VERTICAL, variable=y, command=moveInY).pack(side='right',padx=5)
+##y.set(0)
+##y.pack(side='right',padx=5)
+##y.bind('<ButtonRelease>', moveInY)
 
-x = Scale(root, from_=-30, to=30, length=600, orient=VERTICAL)
-x.set(0)
-x.pack(side='right',padx=5)
-x.bind('<ButtonRelease>', moveInX)
+Scale(root, from_=-30, to=30, length=600, orient=VERTICAL, variable=x, command=moveInX).pack(side='right',padx=5)
+##x.set(0)
+##x.pack(side='right',padx=5)
+##x.bind('<ButtonRelease>', moveInX)
 
 
 
