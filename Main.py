@@ -45,6 +45,12 @@ def choose_painting(event):
         h = photo.height()
         c.itemconfigure(item, image=photo)
 
+    elif temp == "Canaletto":
+           
+        photo = ImageTk.PhotoImage(Image.open("westminister.jpg"))
+        w = photo.width()
+        h = photo.height()
+        c.itemconfigure(item, image=photo)
 
 def makeWindow():
     global grid
@@ -78,8 +84,7 @@ def makeWindow():
     print p
     window=[]
     for i in (1,2,5,3,6,7,1,0,3,5,8,7):
-##        X = p[i][0]*(0.9*p[i][2])/p[i][2]
-##        Y = p[i][1]*(0.9*p[i][2])/p[i][2]
+
         X = (p[i][0]*newScale)/p[i][2] + (w/2)
         print X
         
@@ -149,8 +154,8 @@ def newWindow():
         p[i][2]=p[i][2]+moveZ
 
     # project in X,Y & make window
-    print "before perspective"
-    print p
+##    print "before perspective"
+##    print p
     newwindow=[]
     for i in (1,2,5,3,6,7,1,0,3,5,8,7):
 ##        X = p[i][0]*(0.9*p[i][2])/p[i][2]
@@ -159,8 +164,8 @@ def newWindow():
         
         Y = (p[i][1]*newScale)/p[i][2] + (h/2)
         newwindow.extend([X,Y])
-    print "after perspective"
-    print newwindow
+##    print "after perspective"
+##    print newwindow
     
     # update on canvas
 
@@ -169,8 +174,14 @@ def newWindow():
 
 
 def moveInZ(event):
-    global moveZ
-    moveZ=z.get()    
+    global moveZ, newScale
+    temp = abs(moveZ)
+    moveZ=z.get()
+    if (abs(moveZ)>temp):
+        newScale = newScale + 10*(abs(moveZ)-temp)
+    elif (abs(moveZ)<temp):
+        newScale = newScale - 10*(temp-abs(moveZ))
+    scale.set(newScale)
     newWindow()
 
 def moveInY(event):
@@ -267,46 +278,33 @@ window=makeWindow()
 item2 = c.create_line(window,fill="red")
 
 
-OptionMenu(root, var, "Music","Officer", command=choose_painting).pack()
+OptionMenu(root, var, "Music","Officer","Canaletto", command=choose_painting).pack()
 Button(root, text='Reset', command=reset_values).pack()
 
 
 Scale(root, from_=-90, to=90, length=600, orient=VERTICAL, variable=z2, command=rotateInZ).pack(side='right',padx=5)
-##scale2.set(0)
-##scale2.pack(side='right',padx=5)
-##scale2.bind('<ButtonRelease>', rotateInZ)
+
 
 Scale(root, from_=-90, to=90, length=600, orient=VERTICAL, variable=y2, command=rotateInY).pack(side='right',padx=5)
-#scale3.set(0)
-#scale3.pack(side='right',padx=5)
-#scale3.bind('<ButtonRelease>', rotateInY)
+
 
 Scale(root, from_=-90, to=90, length=600, orient=VERTICAL, variable=x2, command=rotateInX).pack(side='right',padx=5)
-#scale4.set(0)
-#scale4.pack(side='right',padx=5)
-#scale4.bind('<ButtonRelease>', rotateInX)
+
 
 Scale(root, from_=1, to=1000, length=600, orient=VERTICAL, variable=scale, command=changeScale ).pack(side='right',padx=20)
 scale.set(100)
-##scale.pack(side='right',padx=20)
-##scale.bind('<ButtonRelease>', changeScale)
 
 
 
 Scale(root, from_=-100, to=100, length=600, orient=VERTICAL, variable=z, command=moveInZ).pack(side='right',padx=5)
 z.set(1)
-##z.pack(side='right',padx=5)
-##z.bind('<ButtonRelease>', moveInZ)
+
 
 Scale(root, from_=-30, to=30, length=600, orient=VERTICAL, variable=y, command=moveInY).pack(side='right',padx=5)
-##y.set(0)
-##y.pack(side='right',padx=5)
-##y.bind('<ButtonRelease>', moveInY)
+
 
 Scale(root, from_=-30, to=30, length=600, orient=VERTICAL, variable=x, command=moveInX).pack(side='right',padx=5)
-##x.set(0)
-##x.pack(side='right',padx=5)
-##x.bind('<ButtonRelease>', moveInX)
+
 
 
 
