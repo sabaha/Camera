@@ -11,7 +11,8 @@ h=w=0
 
 
 imageFile = "xl_music.jpg"
-
+#global const
+const= 10
 
 grid = np.zeros((9,3),float)
 grid[0] = [-1,1,0]
@@ -53,19 +54,24 @@ def choose_painting(event):
         c.itemconfigure(item, image=photo)
 
 def makeWindow():
-    global grid
-    p = np.zeros((9,3),float)
-    p = 1.*grid
-    
+    global grid, const
     global moveX,moveY,moveZ,rotX,rotY,rotZ,newScale,w,h
+
     moveX=moveY=rotX=rotY=rotZ=0
     newScale=100
     moveZ=1
+
+
+    p = np.zeros((9,3),float)
+    p = 1.*grid*newScale
+    
+
+
     
 ##    # scale grid
 ##    for i in range(0,9):
 ##        for j in range (0,2):
-##            p[i][j]=grid[i][j]*newScale*10
+##            p[i][j]=grid[i][j]*newScale
     
     # translate x,y,z
     #X
@@ -85,10 +91,10 @@ def makeWindow():
     window=[]
     for i in (1,2,5,3,6,7,1,0,3,5,8,7):
 
-        X = (p[i][0]*newScale)/p[i][2] + (w/2)
+        X = const*((p[i][0])/p[i][2]) + (w/2)
         print X
         
-        Y = (p[i][1]*newScale)/p[i][2] + (h/2)
+        Y = const*((p[i][1])/p[i][2]) + (h/2)
         print Y
         window.extend([X,Y])
     
@@ -96,16 +102,17 @@ def makeWindow():
     
 
 def newWindow():
-    global grid
-    p = np.zeros((9,3),float)
-    p = 1.*grid
-
+    global grid, const
     global moveX,moveY,moveZ,rotX,rotY,rotZ,newScale,w,h
+    p = np.zeros((9,3),float)
+    p = 1.*grid*newScale
+
+
     
 ##    # scale grid
 ##    for i in range(0,9):
 ##        for j in range (0,2):
-##            p[i][j]=grid[i][j]*newScale*10
+##            p[i][j]=grid[i][j]*newScale
 
     # rotate x,y,z
 
@@ -143,7 +150,7 @@ def newWindow():
     # translate x,y,z
     #X
     for i in range(0,9):    
-        p[i][0]=p[i][0]+moveX
+        p[i][0]=p[i][0]+moveX 
 
     #Y
     for i in range(0,9):    
@@ -160,9 +167,9 @@ def newWindow():
     for i in (1,2,5,3,6,7,1,0,3,5,8,7):
 ##        X = p[i][0]*(0.9*p[i][2])/p[i][2]
 ##        Y = p[i][1]*(0.9*p[i][2])/p[i][2]
-        X = (p[i][0]*newScale)/p[i][2] + (w/2)
+        X = const*((p[i][0])/p[i][2]) + (w/2)
         
-        Y = (p[i][1]*newScale)/p[i][2] + (h/2)
+        Y = const*((p[i][1])/p[i][2]) + (h/2)
         newwindow.extend([X,Y])
 ##    print "after perspective"
 ##    print newwindow
@@ -177,11 +184,11 @@ def moveInZ(event):
     global moveZ, newScale
     temp = abs(moveZ)
     moveZ=z.get()
-    if (abs(moveZ)>temp):
-        newScale = newScale + 10*(abs(moveZ)-temp)
-    elif (abs(moveZ)<temp):
-        newScale = newScale - 10*(temp-abs(moveZ))
-    scale.set(newScale)
+##    if (abs(moveZ)>temp):
+##        newScale = newScale + 10*(abs(moveZ)-temp)
+##    elif (abs(moveZ)<temp):
+##        newScale = newScale - 10*(temp-abs(moveZ))
+##    scale.set(newScale)
     newWindow()
 
 def moveInY(event):
@@ -296,14 +303,14 @@ scale.set(100)
 
 
 
-Scale(root, from_=-100, to=100, length=600, orient=VERTICAL, variable=z, command=moveInZ).pack(side='right',padx=5)
+Scale(root, from_=1, to=1000, length=600, orient=VERTICAL, variable=z, command=moveInZ).pack(side='right',padx=5)
 z.set(1)
 
 
-Scale(root, from_=-30, to=30, length=600, orient=VERTICAL, variable=y, command=moveInY).pack(side='right',padx=5)
+Scale(root, from_=-10000, to=10000, length=600, orient=VERTICAL, variable=y, command=moveInY).pack(side='right',padx=5)
 
 
-Scale(root, from_=-30, to=30, length=600, orient=VERTICAL, variable=x, command=moveInX).pack(side='right',padx=5)
+Scale(root, from_=-10000, to=10000, length=600, orient=VERTICAL, variable=x, command=moveInX).pack(side='right',padx=5)
 
 
 
