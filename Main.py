@@ -1,7 +1,7 @@
 from Tkinter import *
 import numpy as np
 import math
-
+from scipy.optimize import leastsq
 
 
 
@@ -354,19 +354,39 @@ def funcY(y,z,rotY,rotZ,rotX,scale,moveZ,moveY):
     return Yprime
 
 
-def residualX(gridx,gridz,rotY,rotZ,rotX,scale,moveZ,moveX,X0):
-    return X0-funcX(gridx,gridz,rotY,rotZ,rotX,scale,moveZ,moveX)
+def residual(slides):
+    global xpix, ypix
+    x.set(slides[0])
+    y.set(slides[1])
+    z.set(slides[2])
+    x2.set(slides[3])
+    y2.set(slides[4])
+    z2.set(slides[5])
+    scale.set(slides[6])
+    newWindow()
+    print xpix - window[:,0]
+    print ypix - window[:,1]
+    res = np.concatenate((xpix - window[:,0],ypix - window[:,1]))
+    return res
 
 
 def calculate():
+    global xpix, ypix, window
     print "to do"
-    global window
-    Xcol = window[:,0]
-    Ycol = window[:,1]
+    xpix = 1.*window[:,0]
+    ypix = 1.*window[:,1]
+    slides = 7*[0]
+    slides[0] = x.get()
+    slides[1] = y.get()
+    slides[2] = z.get()
+    slides[3] = x2.get()
+    slides[4] = y2.get()
+    slides[5] = z2.get()
+    slides[6] = scale.get()
+    leastsq(residual,slides)
 
-    for i in range(0,9):
-        plsq = leastsq(residualX, p0, args=(y, x), maxfev=2000)
-
+#    for i in range(9):
+#        print '%5i %5i  %5i %5i' % (Xcol[i],Xcolp[i],Ycol[i],Ycolp[i])
     
 
 root = Tk()
