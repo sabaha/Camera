@@ -74,6 +74,11 @@ def choose_painting(event):
     elif temp == "Canaletto":
         photo = PhotoImage(file="westminister.gif"); w = photo.width(); h = photo.height(); c.itemconfigure(item, image=photo)
 
+    elif temp == "Milkmaid":
+        photo = PhotoImage(file="xl_milk.gif"); w = photo.width(); h = photo.height(); c.itemconfigure(item, image=photo)
+
+    elif temp == "Letter":
+        photo = PhotoImage(file="xl_open.gif"); w = photo.width(); h = photo.height(); c.itemconfigure(item, image=photo)
 
 
 def makeWindow():
@@ -234,34 +239,34 @@ def floor():
     temp = var.get()
 
     if temp == "Music":
-        x.set(-123); y.set(320); z.set(173); x2.set(78); y2.set(43); z2.set(6); scale.set(1447)
+        x.set(-198); y.set(317); z.set(89); x2.set(-90); y2.set(-48); z2.set(1); scale.set(809)
 
     elif temp == "Canaletto":   
         x.set(-445); y.set(-146); z.set(156); x2.set(0); y2.set(90); z2.set(0); scale.set(1825)
 
     elif temp == "Art":
-        x.set(35); y.set(496); z.set(135); x2.set(-80); y2.set(-39); z2.set(5); scale.set(972)
+        x.set(253); y.set(420); z.set(85); x2.set(-68); y2.set(-46); z2.set(17); scale.set(706)
         
     elif temp == "Beit":
-        x.set(-18); y.set(356); z.set(173); x2.set(90); y2.set(39); z2.set(0); scale.set(1652)
+        x.set(-35); y.set(318); z.set(154); x2.set(88); y2.set(35); z2.set(4); scale.set(1700)
         
     elif temp == "Concert":
-        x.set(229); y.set(229); z.set(114); x2.set(88); y2.set(55); z2.set(-1); scale.set(1074)
+        x.set(199); y.set(268); z.set(126); x2.set(87); y2.set(57); z2.set(-1); scale.set(1262)
 
     elif temp == "Faith":
-        x.set(-445); y.set(-146); z.set(156); x2.set(0); y2.set(90); z2.set(0); scale.set(1825)
+        x.set(-216); y.set(634); z.set(401); x2.set(86); y2.set(52); z2.set(3); scale.set(2000)
 
     elif temp == "Berlin":
-        x.set(349); y.set(363); z.set(87); x2.set(86); y2.set(-53); z2.set(0); scale.set(427)
+        x.set(-382); y.set(576); z.set(135); x2.set(-90); y2.set(-36); z2.set(-5); scale.set(688)
         
     elif temp == "Glass":
-        x.set(-413); y.set(698); z.set(200); x2.set(90); y2.set(52); z2.set(-1); scale.set(1023)
+        x.set(-401); y.set(651); z.set(189); x2.set(87); y2.set(55); z2.set(-1); scale.set(990)
         
     elif temp == "Love":
-        x.set(4); y.set(310); z.set(133); x2.set(90); y2.set(41); z2.set(0); scale.set(1275)
+        x.set(4); y.set(302); z.set(133); x2.set(90); y2.set(37); z2.set(2); scale.set(1286)
 
     elif temp == "Standing":
-        x.set(-231); y.set(413); z.set(228); x2.set(90); y2.set(943); z2.set(0); scale.set(2000)
+        x.set(-235); y.set(424); z.set(200); x2.set(-90); y2.set(44); z2.set(0); scale.set(1752)
 
 #    moveX = x.get(); moveY = y.get(); moveZ = z.get(); rotX = x2.get(); rotY = y2.get(); rotZ = z2.get(); newScale=scale.get()
     newWindow()
@@ -271,28 +276,28 @@ def wall():
     temp = var.get()
 
     if temp == "Music":
-        x.set(-515); y.set(-708); z.set(300); x2.set(0); y2.set(90); z2.set(0); scale.set(1292)
+        x.set(-804); y.set(-1000); z.set(469); x2.set(90); y2.set(-1); z2.set(88); scale.set(1311)
     
     elif temp == "Officer":
-        x.set(-452); y.set(-182); z.set(171); x2.set(1); y2.set(90); z2.set(0); scale.set(1127)
+        x.set(-454); y.set(-47); z.set(155); x2.set(89); y2.set(-1); z2.set(-89); scale.set(1014)
 
     elif temp == "Canaletto":
         x.set(-445); y.set(-146); z.set(156); x2.set(0); y2.set(90); z2.set(0); scale.set(1825)
 
     elif temp == "Astronomer":
-        x.set(-641); y.set(-162); z.set(246); x2.set(-1); y2.set(90); z2.set(0); scale.set(1388)
+        x.set(-650); y.set(-176); z.set(271); x2.set(88); y2.set(0); z2.set(90); scale.set(1515)
 
     elif temp == "Geographer":
-        x.set(-482); y.set(-113); z.set(168); x2.set(-1); y2.set(90); z2.set(3); scale.set(821)
+        x.set(-575); y.set(-106); z.set(178); x2.set(90); y2.set(-1); z2.set(90); scale.set(1078)
 
-    elif temp == "Berlin":
-        x.set(-445); y.set(-146); z.set(156); x2.set(0); y2.set(90); z2.set(0); scale.set(1825)
-        
-##    elif temp == "Glass":
-##          x.set(-515); y.set(-708); z.set(300); x2.set(0); y2.set(90); z2.set(0); scale.set(1292)
-        
     elif temp == "Standing":
-        x.set(-445); y.set(-146); z.set(156); x2.set(0); y2.set(90); z2.set(0); scale.set(1825)
+        x.set(-1000); y.set(13); z.set(500); x2.set(90); y2.set(1); z2.set(90); scale.set(1773)
+
+    elif temp == "Milkmaid":
+        x.set(-537); y.set(-397); z.set(229); x2.set(87); y2.set(0); z2.set(88); scale.set(1574)
+
+    elif temp == "Letter":
+        x.set(-265); y.set(8); z.set(297); x2.set(1); y2.set(51); z2.set(1); scale.set(2000)
 
 
 #    moveX = x.get(); moveY = y.get(); moveZ = z.get(); rotX = x2.get(); rotY = y2.get(); rotZ = z2.get(); newScale=scale.get()
@@ -415,7 +420,7 @@ c.bind("<B1-Motion>", motion)
 item2 = c.create_line(makeWindow(),fill="red")
 
 
-OptionMenu(root, var, "Music","Officer","Canaletto","Art","Astronomer","Beit","Concert","Faith","Geographer","Berlin","Glass","Love","Standing", command=choose_painting).pack()
+OptionMenu(root, var, "Music","Officer","Canaletto","Art","Astronomer","Beit","Concert","Faith","Geographer","Berlin","Glass","Love","Standing","Milkmaid","Letter", command=choose_painting).pack()
 Button(root, text='Reset', command=reset_values).pack()
 Button(root, text='Floor', command=floor).pack()
 Button(root, text='Window', command=wall).pack()
