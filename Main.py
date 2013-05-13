@@ -47,7 +47,7 @@ def choose_painting(event):
     elif temp == "Astronomer":
         photo = PhotoImage(file="xl_astronomer.gif"); w = photo.width(); h = photo.height(); c.itemconfigure(item, image=photo)
         
-    elif temp == "Beit":
+    elif temp == "Writing":
         photo = PhotoImage(file="xl_beit.gif"); w = photo.width(); h = photo.height(); c.itemconfigure(item, image=photo)
         
     elif temp == "Concert":
@@ -59,7 +59,7 @@ def choose_painting(event):
     elif temp == "Geographer":
         photo = PhotoImage(file="xl_geographer.gif"); w = photo.width(); h = photo.height(); c.itemconfigure(item, image=photo)
 
-    elif temp == "Berlin":
+    elif temp == "Wine":
         photo = PhotoImage(file="xl_glass_berlin.gif"); w = photo.width(); h = photo.height(); c.itemconfigure(item, image=photo)
         
     elif temp == "Glass":
@@ -79,6 +79,25 @@ def choose_painting(event):
 
     elif temp == "Letter":
         photo = PhotoImage(file="xl_open.gif"); w = photo.width(); h = photo.height(); c.itemconfigure(item, image=photo)
+
+    elif temp == "de Hooch Baby":
+        photo = PhotoImage(file="dehooch_baby.gif"); w = photo.width(); h = photo.height(); c.itemconfigure(item, image=photo)
+
+    elif temp == "de Hooch Drinking":
+        photo = PhotoImage(file="dehooch_drinking.gif"); w = photo.width(); h = photo.height(); c.itemconfigure(item, image=photo)
+
+    elif temp == "de Hooch Gold":
+        photo = PhotoImage(file="dehooch_gold.gif"); w = photo.width(); h = photo.height(); c.itemconfigure(item, image=photo)
+
+    elif temp == "de Hooch Hostess":
+        photo = PhotoImage(file="dehooch_hostess.gif"); w = photo.width(); h = photo.height(); c.itemconfigure(item, image=photo)
+
+    elif temp == "de Hooch Nursing":
+        photo = PhotoImage(file="dehooch_nursing.gif"); w = photo.width(); h = photo.height(); c.itemconfigure(item, image=photo)
+
+    elif temp == "de Hooch Parrot":
+        photo = PhotoImage(file="dehooch_parrot.gif"); w = photo.width(); h = photo.height(); c.itemconfigure(item, image=photo)
+
 
 
 def makeWindow():
@@ -112,7 +131,7 @@ def newWindow():
     global grid
     p = np.zeros((9,3),float)
     p = 10.*grid
-    global moveZ
+#    global moveZ
     global window
     #global moveX,moveY,moveZ,rotX,rotY,rotZ,newScale,w,h
     moveX = x.get(); moveY = y.get(); moveZ = z.get(); rotX = x2.get(); rotY = y2.get(); rotZ = z2.get(); newScale=scale.get()
@@ -205,15 +224,15 @@ def newWindow():
 
 
 def moveInZ(event):
-    global moveZ
-    newScale = scale.get()
-    temp = abs(moveZ)
-    moveZ=z.get()
-    if (abs(moveZ)>temp):
-        newScale = newScale + 10*(abs(moveZ)-temp)
-    elif (abs(moveZ)<temp):
-        newScale = newScale - 10*(temp-abs(moveZ))
-    scale.set(newScale)
+##    global moveZ
+##    newScale = scale.get()
+##    temp = abs(moveZ)
+##    moveZ=z.get()
+##    if (abs(moveZ)>temp):
+##        newScale = newScale + 10*(abs(moveZ)-temp)
+##    elif (abs(moveZ)<temp):
+##        newScale = newScale - 10*(temp-abs(moveZ))
+##    scale.set(newScale)
     newWindow()
 
 def moveInY(event):
@@ -247,7 +266,7 @@ def floor():
     elif temp == "Art":
         x.set(253); y.set(420); z.set(85); x2.set(-68); y2.set(-46); z2.set(17); scale.set(706)
         
-    elif temp == "Beit":
+    elif temp == "Writing":
         x.set(-35); y.set(318); z.set(154); x2.set(88); y2.set(35); z2.set(4); scale.set(1700)
         
     elif temp == "Concert":
@@ -256,7 +275,7 @@ def floor():
     elif temp == "Faith":
         x.set(-216); y.set(634); z.set(401); x2.set(86); y2.set(52); z2.set(3); scale.set(2000)
 
-    elif temp == "Berlin":
+    elif temp == "Wine":
         x.set(-382); y.set(576); z.set(135); x2.set(-90); y2.set(-36); z2.set(-5); scale.set(688)
         
     elif temp == "Glass":
@@ -267,6 +286,21 @@ def floor():
 
     elif temp == "Standing":
         x.set(-235); y.set(424); z.set(200); x2.set(-90); y2.set(44); z2.set(0); scale.set(1752)
+
+    elif temp == "de Hooch Hostess":
+        x.set(-353); y.set(500); z.set(139); x2.set(83); y2.set(45); z2.set(5); scale.set(909)
+
+    elif temp == "de Hooch Baby":
+        x.set(-338); y.set(596); z.set(116); x2.set(-88); y2.set(19); z2.set(-11); scale.set(639)
+
+    elif temp == "de Hooch Drinking":
+        x.set(-347); y.set(458); z.set(141); x2.set(-87); y2.set(5); z2.set(-2); scale.set(872)
+
+    elif temp == "de Hooch Nursing":
+        x.set(-264); y.set(478); z.set(350); x2.set(74); y2.set(44); z2.set(9); scale.set(2000)
+
+    elif temp == "de Hooch Parrot":
+        x.set(-50); y.set(192); z.set(209); x2.set(87); y2.set(42); z2.set(1); scale.set(2000)
 
 #    moveX = x.get(); moveY = y.get(); moveZ = z.get(); rotX = x2.get(); rotY = y2.get(); rotZ = z2.get(); newScale=scale.get()
     newWindow()
@@ -299,6 +333,8 @@ def wall():
     elif temp == "Letter":
         x.set(-265); y.set(8); z.set(297); x2.set(1); y2.set(51); z2.set(1); scale.set(2000)
 
+    elif temp == "de Hooch Gold":
+        x.set(-452); y.set(-7); z.set(371); x2.set(-1); y2.set(73); z2.set(2); scale.set(1770)
 
 #    moveX = x.get(); moveY = y.get(); moveZ = z.get(); rotX = x2.get(); rotY = y2.get(); rotZ = z2.get(); newScale=scale.get()
     newWindow()
@@ -420,7 +456,7 @@ c.bind("<B1-Motion>", motion)
 item2 = c.create_line(makeWindow(),fill="red")
 
 
-OptionMenu(root, var, "Music","Officer","Canaletto","Art","Astronomer","Beit","Concert","Faith","Geographer","Berlin","Glass","Love","Standing","Milkmaid","Letter", command=choose_painting).pack()
+OptionMenu(root, var, "Letter","Officer","Milkmaid","Wine","Glass","Music","Concert","Art","Astronomer","Geographer","Love","Writing","Faith","Standing","de Hooch Baby","de Hooch Drinking","de Hooch Gold","de Hooch Hostess","de Hooch Nursing","de Hooch Parrot", command=choose_painting).pack()
 Button(root, text='Reset', command=reset_values).pack()
 Button(root, text='Floor', command=floor).pack()
 Button(root, text='Window', command=wall).pack()
