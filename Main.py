@@ -102,6 +102,9 @@ def choose_painting(event):
         photo = PhotoImage(file="picture.gif"); w = photo.width(); h = photo.height(); c.itemconfigure(item, image=photo)
     elif temp == "photo1":
         photo = PhotoImage(file="photo1.gif"); w = photo.width(); h = photo.height(); c.itemconfigure(item, image=photo)
+    elif temp == "photo2":
+        photo = PhotoImage(file="photo2.gif"); w = photo.width(); h = photo.height(); c.itemconfigure(item, image=photo)
+
 
 
 def makeWindow():
@@ -460,7 +463,7 @@ c.bind("<B1-Motion>", motion)
 item2 = c.create_line(makeWindow(),fill="red")
 
 
-OptionMenu(root, var, "picture","photo1","Letter","Officer","Milkmaid","Wine","Glass","Music","Concert","Art","Astronomer","Geographer","Love","Writing","Faith","Standing","de Hooch Baby","de Hooch Drinking","de Hooch Gold","de Hooch Hostess","de Hooch Nursing","de Hooch Parrot", command=choose_painting).pack()
+OptionMenu(root, var, "picture","photo1","photo2","Letter","Officer","Milkmaid","Wine","Glass","Music","Concert","Art","Astronomer","Geographer","Love","Writing","Faith","Standing","de Hooch Baby","de Hooch Drinking","de Hooch Gold","de Hooch Hostess","de Hooch Nursing","de Hooch Parrot", command=choose_painting).pack()
 Button(root, text='Reset', command=reset_values).pack()
 Button(root, text='Floor', command=floor).pack()
 Button(root, text='Window', command=wall).pack()
